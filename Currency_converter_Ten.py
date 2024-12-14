@@ -29,18 +29,16 @@ def convert_currency():
     global result
     global rate
     
-    # Запрос обменного курса между базовой и целевой валютой
     response = requests.get(url.format(api, base_currency, target_currency))
-    result = response.json()  # Исправлено: вызов json как метода
+    result = response.json()  
 
-    # Извлечение значения курса из ответа
-    if response.status_code == 200:  # Проверка успешности запроса
-        rate = result['conversion_rate']  # Курс конверсии
-        amount = float(text_field.get(0.0, tkinter.END))  # Получаем сумму для конвертации
+   
+    if response.status_code == 200:  
+        rate = result['conversion_rate']  
+        amount = float(text_field.get(0.0, tkinter.END)) 
         
-        # Конвертация валюты
-        converted_amount = amount * rate  # Рассчитываем конвертированную сумму
-        result_label.configure(text=str(round(converted_amount, 2)))  # Отображаем результат на интерфейсе
+        converted_amount = amount * rate  
+        result_label.configure(text=str(round(converted_amount, 2))) 
     else:
         result_label.configure(text="Ошибка!")
 
@@ -48,9 +46,8 @@ def main():
     base_currency = 'USD'
     target_currency = 'RUB'
     amount = text_field.get(0.0, tkinter.END)
-    convert_currency()  # Исправлено: вызов без параметров
+    convert_currency()  
 
-# Функции выбора базовой валюты
 def base_currency1():
     global base_currency
     base_currency = 'USD'
@@ -80,7 +77,6 @@ bc_ru = customtkinter.CTkButton(master=app, width=30, height=30, text='RUB', com
 
 to_label = customtkinter.CTkLabel(master=app, text='В:').place(relx=0.6, rely=0.04)
 
-# Функции выбора целевой валюты
 def target_currency1():
     global target_currency
     target_currency = 'USD'
