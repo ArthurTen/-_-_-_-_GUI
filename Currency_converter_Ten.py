@@ -13,7 +13,7 @@ app.resizable(False, False)
 base_currency = 'USD'
 target_currency = 'RUB'
 url = "https://v6.exchangerate-api.com/v6/{}/pair/{}/{}"
-api = '6a647b4f875e4a14d3fdfdfe'
+api = 'secret'
 
 bcl = customtkinter.CTkLabel(master=app, text='').place(relx=0.45, rely=0.04)
 tcl = customtkinter.CTkLabel(master=app, text='').place(relx=0.94, rely=0.04)
